@@ -3,11 +3,13 @@ package service;
 import java.io.*;
 import java.net.URL;
 import java.net.URLConnection;
+import com.mongodb.MongoClient;
+
 
 public class StoreData {
     private static String fileUrl = "https://raw.githubusercontent.com/haniehalipour/Online-Machine-Learning-for-Cloud-Resource-Provisioning-of-Microservice-Backend-Systems/master/Workload%20Data/DVD-training.csv";
     private static BufferedReader br = null;
-
+    MongoClient mongoClient;
     public static void storeData() {
         String line = "";
         String byComma = ",";
