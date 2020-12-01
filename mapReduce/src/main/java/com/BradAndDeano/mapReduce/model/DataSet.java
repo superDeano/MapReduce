@@ -1,7 +1,11 @@
-package model;
+package com.BradAndDeano.mapReduce.model;
 
+
+import org.springframework.data.annotation.Id;
 
 public class DataSet {
+    @Id
+    private long id;
     private int cpuUtilization;
     private int networkIn;
     private int networkOut;
@@ -15,6 +19,14 @@ public class DataSet {
     }
 
     public DataSet() {
+    }
+
+    public long getId() {
+        return id;
+    }
+
+    public void setId(long id) {
+        this.id = id;
     }
 
     public int getCpuUtilization() {
