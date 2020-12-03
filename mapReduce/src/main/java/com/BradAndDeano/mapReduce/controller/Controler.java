@@ -1,6 +1,5 @@
 package com.BradAndDeano.mapReduce.controller;
 
-import com.BradAndDeano.mapReduce.model.MapReduceResult;
 import com.BradAndDeano.mapReduce.model.ValueObject;
 import com.BradAndDeano.mapReduce.service.GetDataSetAndStore;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,4 +25,8 @@ public class Controler {
         return getDataSetAndStore.doMp();
     }
 
+    @GetMapping("/delete")
+    public String dropCollection() {
+        return getDataSetAndStore.deleteCollection();
+    }
 }

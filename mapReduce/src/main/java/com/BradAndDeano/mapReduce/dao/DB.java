@@ -11,4 +11,5 @@ import java.util.List;
 public interface DB {
     List<ValueObject> tryMapReduce();
     void insertData(List<DataSet> dataSets);
+    void deleteCollection();
 }

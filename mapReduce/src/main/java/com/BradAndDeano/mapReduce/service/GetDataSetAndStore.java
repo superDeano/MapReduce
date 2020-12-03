@@ -71,5 +71,10 @@ public class GetDataSetAndStore {
         return db.tryMapReduce();
     }
 
+    public String deleteCollection(){
+        db.deleteCollection();
+        return "Deleted";
+    }
+
 
 }

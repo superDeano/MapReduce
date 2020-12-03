@@ -79,5 +79,10 @@ public class DBImpl implements DB {
         mongoOperations.insert(dataSets, DataSet.class);
     }
 
+    @Override
+    public void deleteCollection(){
+        mongoOperations.dropCollection(DataSet.class);
+    }
+
 
 }
