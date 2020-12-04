@@ -8,6 +8,14 @@ services:
     container_name: mongo
     ports: 
       - "27017-27019:27017-27019"
+  mapreduce:
+    image: mapreduce/mp
+    depends_on:
+      - mongodb-dev
+    container_name: mp
+    ports:
+      - "5959:6969"
+ 
 version: "3"
 
 
