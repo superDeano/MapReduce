@@ -1,22 +1,24 @@
-services: 
-  mongodb-dev: 
-    environment: 
-      MONGO_INITDB_DATABASE: DataSets # database name to give
+version: "3.7"
+services:
+
+  mongodb-dev:
+    image: mongo
+    environment:
+      MONGO_INITDB_DATABASE: datasets # database name to give
       MONGO_INITDB_ROOT_USERNAME: root
       MONGO_INITDB_ROOT_PASSWORD: root
-    image: mongo
-    container_name: mongo
-    ports: 
+    container_name: mongodb-database
+    ports:
       - "27017-27019:27017-27019"
   mapreduce:
-    image: mapreduce/mp
+    image: assignment2/mapreduce:latest
+    restart: always
     depends_on:
       - mongodb-dev
-    container_name: mp
+    container_name: mapreduce
     ports:
-      - "5959:6969"
- 
-version: "3"
+      - "6000:6000"
+
 
 
 
