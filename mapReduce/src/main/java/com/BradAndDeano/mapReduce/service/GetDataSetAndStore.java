@@ -23,7 +23,7 @@ public class GetDataSetAndStore {
 
     private BufferedReader br = null;
 
-    public void storeData() {
+    public String storeData() {
         String line = "";
         String byComma = ",";
         List<DataSet> dataSets = new ArrayList<>();
@@ -65,6 +65,7 @@ public class GetDataSetAndStore {
                 }
             }
         }
+        return "Done";
     }
 
     public List<ValueObject> doMp() {

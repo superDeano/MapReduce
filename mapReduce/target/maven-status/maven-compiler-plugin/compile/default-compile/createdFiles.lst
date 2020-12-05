@@ -1,0 +1,8 @@
+com/BradAndDeano/mapReduce/model/ValueObject.class
+com/BradAndDeano/mapReduce/controller/Controler.class
+com/BradAndDeano/mapReduce/MapReduceApplication.class
+com/BradAndDeano/mapReduce/dao/DBImpl.class
+com/BradAndDeano/mapReduce/dao/DB.class
+com/BradAndDeano/mapReduce/service/GetDataSetAndStore.class
+com/BradAndDeano/mapReduce/model/MapReduceResult.class
+com/BradAndDeano/mapReduce/model/DataSet.class

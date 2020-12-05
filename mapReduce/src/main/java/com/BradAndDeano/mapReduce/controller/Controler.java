@@ -16,8 +16,7 @@ public class Controler {
 
     @GetMapping("/store")
     public String storeDataInDb() {
-        getDataSetAndStore.storeData();
-        return "Good";
+        return getDataSetAndStore.storeData();
     }
 
     @GetMapping("/mp")

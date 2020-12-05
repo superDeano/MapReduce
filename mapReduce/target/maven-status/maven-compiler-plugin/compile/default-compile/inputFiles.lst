@@ -1,0 +1,8 @@
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/service/GetDataSetAndStore.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/dao/DB.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/dao/DBImpl.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/model/MapReduceResult.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/model/ValueObject.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/MapReduceApplication.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/controller/Controler.java
+/home/brad/projects/coen424/assignment2/MapReduce/mapReduce/src/main/java/com/BradAndDeano/mapReduce/model/DataSet.java
