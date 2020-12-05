@@ -16,16 +16,22 @@ public class Controler {
 
     @GetMapping("/store")
     public String storeDataInDb() {
-        return getDataSetAndStore.storeData();
+        getDataSetAndStore.storeData("https://raw.githubusercontent.com/haniehalipour/Online-Machine-Learning-for-Cloud-Resource-Provisioning-of-Microservice-Backend-Systems/master/Workload%20Data/DVD-testing.csv", "testing");
+        return getDataSetAndStore.storeData("https://raw.githubusercontent.com/haniehalipour/Online-Machine-Learning-for-Cloud-Resource-Provisioning-of-Microservice-Backend-Systems/master/Workload%20Data/DVD-training.csv", "training");
     }
 
-    @GetMapping("/mp")
-    public List<ValueObject> doMp() {
-        return getDataSetAndStore.doMp();
+    @GetMapping("/mp/testing")
+    public List<ValueObject> doMpTest() {
+        return getDataSetAndStore.doMp("testing", "testingMapped");
+    }
+    @GetMapping("/mp/training")
+    public List<ValueObject> doMpTrain() {
+        return getDataSetAndStore.doMp("training", "trainingMapped");
     }
 
     @GetMapping("/delete")
     public String dropCollection() {
-        return getDataSetAndStore.deleteCollection();
+        getDataSetAndStore.deleteCollection("training");
+        return getDataSetAndStore.deleteCollection("testing");
     }
 }

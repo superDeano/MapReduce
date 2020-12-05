@@ -19,11 +19,11 @@ public class GetDataSetAndStore {
     @Autowired
     private DB db;
 
-    private String fileUrl = "https://raw.githubusercontent.com/haniehalipour/Online-Machine-Learning-for-Cloud-Resource-Provisioning-of-Microservice-Backend-Systems/master/Workload%20Data/DVD-training.csv";
+    //private String fileUrl = "https://raw.githubusercontent.com/haniehalipour/Online-Machine-Learning-for-Cloud-Resource-Provisioning-of-Microservice-Backend-Systems/master/Workload%20Data/DVD-training.csv";
 
     private BufferedReader br = null;
 
-    public String storeData() {
+    public String storeData(String fileUrl, String collectionName) {
         String line = "";
         String byComma = ",";
         List<DataSet> dataSets = new ArrayList<>();
@@ -51,7 +51,7 @@ public class GetDataSetAndStore {
 
                 dataSets.add(dataSet);
             }
-            db.insertData(dataSets);
+            db.insertData(dataSets, collectionName);
 
         } catch (IOException e) {
             e.printStackTrace();
@@ -68,12 +68,12 @@ public class GetDataSetAndStore {
         return "Done";
     }
 
-    public List<ValueObject> doMp() {
-        return db.tryMapReduce();
+    public List<ValueObject> doMp(String sourceCollection, String targetCollection) {
+        return db.tryMapReduce(sourceCollection, targetCollection);
     }
 
-    public String deleteCollection(){
-        db.deleteCollection();
+    public String deleteCollection(String targetCollection){
+        db.deleteCollection(targetCollection);
         return "Deleted";
     }
 

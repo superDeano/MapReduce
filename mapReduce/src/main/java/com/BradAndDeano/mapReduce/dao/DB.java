@@ -9,7 +9,7 @@ import java.util.List;
 
 @Repository
 public interface DB {
-    List<ValueObject> tryMapReduce();
-    void insertData(List<DataSet> dataSets);
-    void deleteCollection();
+    List<ValueObject> tryMapReduce(String sourceCollectionName, String targetCollectionName);
+    void insertData(List<DataSet> dataSets, String collectionName);
+    void deleteCollection(String targetCollection);
 }

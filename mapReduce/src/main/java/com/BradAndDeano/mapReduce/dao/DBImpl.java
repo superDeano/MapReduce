@@ -16,7 +16,7 @@ public class DBImpl implements DB {
     private MongoTemplate mongoOperations;
 
     @Override
-    public List<ValueObject> tryMapReduce() {
+    public List<ValueObject> tryMapReduce(String sourceCollection, String targetCollection) {
         String mapFn =
                 "function() {\n" +
                         "    if (this.cpuUtilization >= 0 && this.cpuUtilization<= 10) {\n" +
@@ -66,22 +66,21 @@ public class DBImpl implements DB {
                         "        \"standardDeviation\": stdDev\n" +
                         "    };\n" +
                         "};";
-        String col = mongoOperations.getCollectionName(DataSet.class);
 
-        MapReduceResults<MapReduceResult> result = mongoOperations.mapReduce(mongoOperations.getCollectionName(DataSet.class), mapFn, reduceFn, MapReduceOptions.options().actionReplace()
-                        .outputCollection("Ass2")
+        MapReduceResults<MapReduceResult> result = mongoOperations.mapReduce(sourceCollection, mapFn, reduceFn, MapReduceOptions.options().actionReplace()
+                        .outputCollection(targetCollection)
                 , MapReduceResult.class);
-        return mongoOperations.find(new Query(), ValueObject.class, "Ass2");
+        return mongoOperations.find(new Query(), ValueObject.class, targetCollection);
     }
 
     @Override
-    public void insertData(List<DataSet> dataSets) {
-        mongoOperations.insert(dataSets, DataSet.class);
+    public void insertData(List<DataSet> dataSets, String collectionName) {
+        mongoOperations.insert(dataSets, collectionName);
     }
 
     @Override
-    public void deleteCollection(){
-        mongoOperations.dropCollection(DataSet.class);
+    public void deleteCollection(String targetCollection){
+        mongoOperations.dropCollection(targetCollection);
     }
 
 
