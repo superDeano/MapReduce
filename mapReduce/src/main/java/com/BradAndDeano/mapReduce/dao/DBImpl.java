@@ -45,8 +45,15 @@ public class DBImpl implements DB {
         String reduceFn =
                 "function(range, cpuUtils) {\n" +
                         "    var numSamples = cpuUtils.length;\n" +
-                        "    var maxCpuUtil =0; var total = 0; var median = 0; var stdDev = 0;\n" +
+                        "    var maxCpuUtil =0; var total = 0; var median = 0;var mean = 0; var stdDev = 0;\n" +
                         "    var minCpuUtil = 100;\n" +
+                        "cpuUtils.sort();" +
+                        "var middleIndex = Math.floor(numSamples/2);" +
+                        "if (numSamples % 2 === 0){" +
+                        "median = (cpuUtils[middleIndex] + cpuUtils[middleIndex - 1])/2;" +
+                        "}else {" +
+                        "median = cpuUtils[middleIndex];" +
+                        "}" +
                         "    for (var i = 0; i < cpuUtils.length; i++) {\n" +
                         "        if (cpuUtils[i] > maxCpuUtil) {\n" +
                         "            maxCpuUtil = cpuUtils[i];\n" +
@@ -56,8 +63,8 @@ public class DBImpl implements DB {
                         "        }\n" +
                         "        total += cpuUtils[i];\n" +
                         "    }\n" +
-                        "    median = total / numSamples;\n" +
-                        "    stdDev = Math.sqrt(cpuUtils.map(x => Math.pow(x - median, 2)).reduce((a, b) => a + b) / numSamples);\n" +
+                        "    mean = total / numSamples;\n" +
+                        "    stdDev = Math.sqrt(cpuUtils.map(x => Math.pow(x - mean, 2)).reduce((a, b) => a + b) / numSamples);\n" +
                         "    return {\n" +
                         "        \"numberOfSamples\": numSamples,\n" +
                         "        \"maximum\": maxCpuUtil,\n" +
