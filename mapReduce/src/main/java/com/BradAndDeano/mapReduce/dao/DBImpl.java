@@ -20,25 +20,25 @@ public class DBImpl implements DB {
         String mapFn =
                 "function() {\n" +
                         "    if (this.cpuUtilization >= 0 && this.cpuUtilization<= 10) {\n" +
-                        "        emit('(0, 10]', this.cpuUtilization);\n" +
+                        "        emit('(0, 10]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 10 && this.cpuUtilization <= 20) {\n" +
-                        "        emit('(10, 20]', this.cpuUtilization);\n" +
+                        "        emit('(10, 20]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 20 && this.cpuUtilization <= 30) {\n" +
-                        "        emit('(20, 30]', this.cpuUtilization);\n" +
+                        "        emit('(20, 30]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 30 && this.cpuUtilization <= 40) {\n" +
-                        "        emit('(30, 40]', this.cpuUtilization);\n" +
+                        "        emit('(30, 40]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 40 && this.cpuUtilization <= 50) {\n" +
-                        "        emit('(40, 50]', this.cpuUtilization);\n" +
+                        "        emit('(40, 50]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 50 && this.cpuUtilization <= 60) {\n" +
-                        "        emit('(50, 60]', this.cpuUtilization);\n" +
+                        "        emit('(50, 60]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 60 && this.cpuUtilization <= 70) {\n" +
-                        "        emit('(60, 70]', this.cpuUtilization);\n" +
+                        "        emit('(60, 70]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 70 && this.cpuUtilization <= 80) {\n" +
-                        "        emit('(70, 80]', this.cpuUtilization);\n" +
+                        "        emit('(70, 80]', this.memoryUtilization);\n" +
                         "    } else if (this.cpuUtilization > 80 && this.cpuUtilization <= 90) {\n" +
-                        "        emit('(80, 90]', this.cpuUtilization);\n" +
+                        "        emit('(80, 90]', this.memoryUtilization);\n" +
                         "    } else {\n" +
-                        "        emit('(90, 100]', this.cpuUtilization);\n" +
+                        "        emit('(90, 100]', this.memoryUtilization);\n" +
                         "    }\n" +
                         "};";
 
